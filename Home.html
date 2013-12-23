@@ -1,0 +1,652 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="styles/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="styles/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/bootstrap-image-gallery.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    <script src="scripts/jquery-1.8.3.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="styles/jquery.fancybox.css" media="screen" />
+    <script type="text/javascript" src="scripts/jquery.fancybox.js"></script>
+
+    <style>
+        body {
+            font-size: 125%;
+            background: #f0f0f0;
+            color: #222;
+            font-family: "Alegreya",Cambria,"Chaparral Pro",Georgia,serif;
+            line-height: 1.5;
+            max-width: 1200px;
+        }
+
+        .header-container {
+            padding: 3em 0 5em 0;
+            z-index: 2;
+        }
+
+        .header-logo {
+            /*margin-left: 10%;*/
+            display: block;
+            max-height: 12em;
+        }
+
+        .header-tagline {
+            font-family: "Changa One","Open Sans","Helvetica","Arial",sans-serif;
+            letter-spacing: -1px;
+            font-size: 2.5em;
+            line-height: 1;
+            margin: 0.5em 0;
+            z-index: 9;
+            color: black;
+        }
+
+        .nav-container {
+            background: #11851b;
+            font-family: "Lato","Open Sans","Lucida Grande","Verdana",sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+            .nav-container a {
+                color: white;
+                display: inline-block;
+                padding: 1em;
+            }
+
+        .nav-logo {
+            text-align: left;
+            font-family: 'Lato', sans-serif;
+            color: white;
+        }
+
+        /* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+
+        /* Carousel base class */
+        .carousel {
+            margin-bottom: 60px;
+        }
+
+            .carousel .container {
+                position: relative;
+                z-index: 9;
+            }
+
+        .carousel-control {
+            height: 80px;
+            margin-top: 0;
+            font-size: 120px;
+            text-shadow: 0 1px 1px rgba(0,0,0,.4);
+            background-color: transparent;
+            border: 0;
+            z-index: 10;
+        }
+
+        .carousel .item {
+            height: 300px;
+        }
+
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 500px;
+        }
+
+        .carousel-caption {
+            background-color: transparent;
+            position: static;
+            max-width: 550px;
+            padding: 0 20px;
+            margin-top: 200px;
+        }
+
+            .carousel-caption h1,
+            .carousel-caption .lead {
+                margin: 0;
+                line-height: 1.25;
+                color: #fff;
+                text-shadow: 0 1px 1px rgba(0,0,0,.4);
+            }
+
+            .carousel-caption .btn {
+                margin-top: 10px;
+            }
+
+        /* Flex Video box starts here */
+
+        /*.flex-video {
+            position: relative;
+            padding-top: 25px;
+            padding-bottom: 67.5%;
+            height: 0;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+            .flex-video.widescreen {
+                padding-bottom: 57.25%;
+            }
+
+            .flex-video.vimeo {
+                padding-top: 0;
+            }
+
+            .flex-video iframe,
+            .flex-video object,
+            .flex-video embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 500px;
+            }
+
+        @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+            .flex-video {
+                padding-top: 0;
+            }
+        }*/
+
+        .bgHeader {
+            /*background: #fff url(/images/TakingOnTheGiant_Banner.png) no-repeat;*/
+            /*background: url(/images/garden_BG.jpg);*/
+            background-color: #fff;
+            -khtml-opacity: .50;
+        }
+
+        .sidebar {
+            font-size: 0.8181em;
+            padding: 10%;
+            background: #fff;
+            border: 1px solid #ddd;
+            background: #fff url(../images/stripes.png) no-repeat;
+        }
+
+        .module {
+            margin-bottom: 1.5em;
+            padding-bottom: 1.5em;
+        }
+
+        .spacer {
+            margin-top: 40px;
+            /*background-color: white;*/
+        }
+
+        #followTab {
+            list-style: none;
+            position: fixed;
+            z-index: 1;
+            right: 0;
+            top: 110px;
+            width: 45px;
+            height: 80px;
+            padding: 15px 5px;
+            border: 5px solid #fff;
+            border-right: none;
+            -moz-border-radius: 10px 0 0 10px;
+            -webkit-border-radius: 10px 0 0 10px;
+            border-radius: 10px 0 0 10px;
+            -moz-box-shadow: 0 0 7px rgba(0, 0, 0, .6);
+            -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .6);
+            box-shadow: 0 0 7px rgba(0, 0, 0, .6);
+            background: rgba(239, 91, 10, .75);
+            background: -moz-linear-gradient(top, rgba(243, 52, 8, .75), rgba(239, 91, 10, .75));
+            background: -webkit-gradient( linear, left top, left bottom, from( rgba(243, 52, 8, .75) ), to( rgba(239, 91, 10, .75) ) );
+            background: linear-gradient(top, rgba(243, 52, 8, .75), rgba(239, 91, 10, .75));
+            filter: progid:DXImageTransform.Microsoft.Gradient( startColorStr='#c0f33408', endColorStr='#c0ef5b0a', GradientType=0 );
+        }
+
+        .bigwhite {
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-shadow: 1px 1px 1px #ccc;
+            font-size: 1em;
+        }
+
+        .rotate {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(-90deg);
+            /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+            -webkit-transform-origin: 50% 50%;
+            -moz-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            -o-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            /* Should be unset in IE9+ I think. */
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+        /* Video box gallery expand effects */
+
+        /*.expandbox {            
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+
+            .expandbox:hover {
+                height: 400px;
+                width: 400px;
+            }*/
+    </style>
+
+
+    <title>Taking on the Giant</title>
+
+</head>
+
+<body>
+    <div id="followTab">
+        <div class="rotate"><a class="bigwhite">Contact&nbsp;Us</a></div>
+    </div>
+    <div class="nav-container">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <!--<div class="span5 hidden-phone">
+                    <!--<h4 class="nav-logo">Taking on the Giant</h4>-->
+                <!--</div>-->
+                <nav class="span12 primary-nav">
+                    <a>Home</a>
+                    <a>Youth Oppurtunities</a>
+                    <a>Stories By Location</a>
+                    <a>Stores By Topic</a>
+                    <a>Teachers Toolkit</a>
+                    <a>Parents Page</a>
+                    <a>Submissions</a>
+                    <input type="search" placeholder="Search" style="width: 120px; height: 10px; margin-left: 20px;" />
+                </nav>
+            </div>
+        </div>
+    </div>
+    <header class="header-container" style="padding-top: 12px; height: 420px; background-color: white;">
+        <div class="row-fluid">
+            <div class="container-fluid">
+                <div class="span5">
+                    <img src="images/finalogo.png" style="margin-left: 0; width: 525px; height: 525px; margin-right: 25%;" />
+                </div>
+                <div class="span7">
+                    <h2 class="header-tagline" style="padding-top: 90px;">Supporting and Inspiring &nbsp; Young Minds</h2>
+                    <p>
+                        <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</i>
+                    </p>
+                    <input type="button" class="btn-primary btn-large offset3" value="Find out more" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+
+        <div class="row-fluid spacer">
+            <div class="span5">
+                <h3>Main Headlines</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into </p>
+            </div>
+
+            <div class="span7" style="background-color: #f0f0f0;">
+                <div id="carousel" class="carousel slide carousel-fade" style="vertical-align: central;">
+                    <div class="carousel-inner" style="text-align: center; width: 100%;">
+                        <div class="item active">
+                            <img src="images/header1.jpg" style="height: 350px; max-width: 275px;" />
+                        </div>
+                        <div class="item">
+                            <img src="images/header2.jpg" style="height: 350px; max-width: 275px;" />
+                        </div>
+                    </div>
+                    <div class="navbox visible-desktop visible-tablet">
+                        <div class="carousel-nav current"></div>
+                        <div class="carousel-nav"></div>
+                        <div class="carousel-nav"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container-fluid">
+        <div class="hero-unit" style="background-color: #bbf2ff;">
+            <section class="row-fluid">
+                <h2>YouTube Screen Here?</h2>
+                <div class="flex-video widescreen">
+                    <iframe src="//www.youtube.com/embed/vOJR7jgvdYE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <article style="padding-bottom: 30px;">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release 
+                </article>
+            </section>
+        </div>
+    </div>
+
+    <!--<div class="container-fluid">
+        <div class="hero-unit" style="background-color: #bbf2ff;">
+            <div style="display: none;" class="html5gallery" data-skin="darkness" data-width="1025" data-height="542">
+                <!-- Add images to Gallery -->
+    <!--        <a href="images/Trees_large.jpg">
+                    <img src="images/Trees_small.jpg" alt="Trees"></a>
+                <a href="images/Island_large.jpg">
+                    <img src="images/Island_small.jpg" alt="Island"></a>
+
+                <!-- Add Youtube video to Gallery -->
+    <!--  <a href="http://www.youtube.com/embed/YE7VzlLtp-4">
+                    <img src="http://img.youtube.com/vi/YE7VzlLtp-4/2.jpg" alt="Youtube Video"></a>
+
+            </div>
+        </div>-->
+    <div class="hero-unit" style="background-color: #1290ca;">
+        <h2 style="color: lightgray">Videos</h2>
+        <div id="vidbox">
+            <a id="abriendo" rel="example_group" data-fancybox-group="group" class="fancybox fancybox.iframe" title="Title of video here" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/abriendo.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img id="aiyorth" alt="example2" src="images/aiyorth.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img class="vid_img" alt="example3" src="images/brazil_girl.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img class="vid_img" alt="example4" src="images/egyptian.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img class="vid_img" alt="example1" src="images/maryam.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img class="vid_img" alt="example1" src="images/tahmina.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img class="vid_img" alt="example1" src="images/aiyorth.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img class="vid_img" alt="example1" src="images/brazil_girl.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img class="vid_img" alt="example1" src="images/egyptian.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/maryam.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/tahmina.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/maryam.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/tahmina.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/aiyorth.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/brazil_girl.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/egyptian.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/maryam.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/tahmina.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/maryam.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/tahmina.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="example1" src="images/aiyorth.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="" src="images/brazil_girl.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="" src="images/egyptian.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="" src="images/maryam.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="" src="images/tahmina.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="" src="images/maryam.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="" src="images/tahmina.jpg" style="width: 70px; height: 70px;" />
+            </a>
+            <a rel="example_group" title="Title of video here" class="fancybox fancybox.iframe" href="http://player.vimeo.com/video/24081323?title=0&amp;byline=0&amp;portrait=0">
+                <img alt="" src="images/aiyorth.jpg" style="width: 70px; height: 70px;" />
+            </a>
+        </div>
+        <p id="captionDiv"></p>
+    </div>
+
+    <div class="container-fluid" style="background-color: #f0f0f0;">
+        <div class="row-fluid">
+            <div class="span7">
+                <h2>About Us</h2>
+                <p>
+                    About Us About Us About Us About Us About Us About UsAbout Us
+                    About Us About Us About Us About Us About Us About Us About Us
+                    About Us About Us About Us About Us About Us About Us About Us
+                    About Us About Us About Us About Us About Us About Us About Us
+                </p>
+
+                <div class="row" style="width: 100%;">
+                    <h2 style="margin-left: 15px;">Meet Our Staff</h2>
+                    <div class="span3">
+                        <img src="images/london_image.jpg" style="width: 165px; height: 150px; min-width: 165px; margin-left: 45px;" />
+                        <div class="span3" style="background: #f8b2f8; color: white; width: 165px; height: 150px; margin-left: 45px;">
+                            Raluca:
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <img src="images/JordanDoll_image.jpg" style="width: 165px; height: 150px; min-width: 165px; margin-left: 45px;" />
+                        <div class="span3" style="background: #1290ca; color: white; width: 165px; height: 150px; margin-left: 45px;">
+                            Jordan:
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <img src="images/MaxBuck_image.jpg" style="width: 165px; height: 150px; min-width: 165px; margin-left: 45px;" />
+                        <div class="span3" style="background: #11851b; color: white; width: 165px; height: 150px; margin-left: 45px;">
+                            Max:
+                        </div>
+                    </div>
+                    <!--<div class="span3" style="margin-left: 20px;">
+                        <div class="span3" style="background: #11851b; color: white; margin-left: 35px; width: 300px; height: 300px; text-align: center;">
+                            <h2>Our Staff</h2>
+                            <p style="margin-top: 110px;">We have a great group of people working with us. Check them out on our staff page.</p>
+                        </div>
+                    </div>-->
+                </div>
+                You can meet the rest of the great people that work for us on our <a href="#">staff page</a>
+                <article>
+                    <h2>Recent Blogs</h2>
+                    Blog blog blog Blog blog blog Blog blog blog Blog blog Blog blog blog  
+                Blog blog blog  Blog blog blog Blog blog blog  Blog blog blog 
+                Blog blog blog  Blog blog blog  Blog blog blog  Blog blog blog 
+                Blog blog blog Blog blog blog  Blog blog blog  Blog blog blog 
+                Blog blog blog  Blog blog blog Blog blog blog Blog blog blog Blog blog blog 
+                <a href="#">Read more</a>
+                    <div>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true" data-count="none" data-via="twitterapi">Tweet</a>
+                        <img src="images/tumblr_icon.png" />
+                        <img src="images/stumbleupon_icon.png" />
+                        <img src="images/email_icon.png" />
+                    </div>
+                </article>
+                <article>
+                    <h2>Blog Title 2</h2>
+                    Blog blog blog Blog blog blog Blog blog blog Blog blog Blog blog blog  
+                Blog blog blog  Blog blog blog Blog blog blog  Blog blog blog 
+                Blog blog blog  Blog blog blog  Blog blog blog  Blog blog blog 
+                Blog blog blog Blog blog blog  Blog blog blog  Blog blog blog 
+                Blog blog blog  Blog blog blog Blog blog blog Blog blog blog Blog blog blog 
+                <a href="#">Read more</a>
+                    <div>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true" data-count="none" data-via="twitterapi">Tweet</a>
+                        <img src="images/tumblr_icon.png" />
+                        <img src="images/stumbleupon_icon.png" />
+                        <img src="images/email_icon.png" />
+                    </div>
+                </article>
+            </div>
+            <div class="span5">
+                <div style="background-color: #1290ca; width: 100%; height: 20px;"></div>
+                <div class="sidebar module" style="box-shadow: 10px 10px 5px #888888;">
+                    <div class="module">
+                        <h3>
+                            <img src="images/pencils.svg" style="width: 25px; height: 25px;" />&nbsp;&nbsp;&nbsp;Contest</h3>
+
+                        Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                <a href="#">More Contests</a>
+                        <hr />
+                    </div>
+                    <div class="module">
+                        <h3>
+                            <img src="images/pencils.svg" style="width: 25px; height: 25px;" />&nbsp;&nbsp;&nbsp;Contest</h3>
+                        Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                <a href="#">More Contests</a>
+                        <hr />
+                    </div>
+                    <div class="module">
+                        <h3>
+                            <img src="images/pencils.svg" style="width: 25px; height: 25px;" />&nbsp;&nbsp;&nbsp;Contest</h3>
+                        Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                Contests Contests Contests Contests Contests Contests Contests Contests Contests
+                <a href="#">More Contests</a>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containe-fluid offset3">
+        <div class="row-fluid">
+            <h2>Blogs</h2>
+            <div class="span3" style="margin-right: 30px;">
+                <img src="images/orca-stock-photo.jpg" class="img-polaroid" style="width: 222px; height: 146px;" />
+                <div>Brief Description</div>
+            </div>
+            <div class="span3" style="margin-right: 30px;">
+                <img src="images/orca-stock-photo.jpg" class="img-polaroid" style="width: 222px; height: 146px;" />
+                <div>Brief Description</div>
+            </div>
+            <div class="span3" style="margin-right: 30px;">
+                <img src="images/orca-stock-photo.jpg" class="img-polaroid" style="width: 222px; height: 146px;" />
+                <div>Brief Description</div>
+            </div>
+            <div class="span3" style="margin-right: 30px;">
+                <img src="images/orca-stock-photo.jpg" class="img-polaroid" style="width: 222px; height: 146px;" />
+                <div>Brief Description</div>
+            </div>
+            <div class="span3" style="margin-right: 30px;">
+                <img src="images/orca-stock-photo.jpg" class="img-polaroid" style="width: 222px; height: 146px;" />
+                <div>Brief Description</div>
+            </div>
+
+            <div class="span3" style="margin-right: 30px;">
+                <img src="images/orca-stock-photo.jpg" class="img-polaroid" style="width: 222px; height: 146px;" />
+                <div>Brief Description</div>
+            </div>
+        </div>
+    </div>
+    <div id="tmp"></div>
+    <div id="fancybox-loading" style="display: none;">
+        <div style="top: -120px;"></div>
+    </div>
+    <div id="fancybox-overlay" style="background-color: rgb(119, 119, 119); opacity: 0.7; cursor: pointer; height: 1827px; display: none;"></div>
+    <div id="fancybox-wrap" style="width: 520px; height: auto; top: 633px; left: 329px; display: none;">
+        <div id="fancybox-outer">
+            <div class="fancybox-bg" id="fancybox-bg-n"></div>
+            <div class="fancybox-bg" id="fancybox-bg-ne"></div>
+            <div class="fancybox-bg" id="fancybox-bg-e"></div>
+            <div class="fancybox-bg" id="fancybox-bg-se"></div>
+            <div class="fancybox-bg" id="fancybox-bg-s"></div>
+            <div class="fancybox-bg" id="fancybox-bg-sw"></div>
+            <div class="fancybox-bg" id="fancybox-bg-w"></div>
+            <div class="fancybox-bg" id="fancybox-bg-nw"></div>
+            <div id="fancybox-content" style="border-width: 10px; width: 500px; height: 333px;"></div>
+            <a id="fancybox-close" style="display: none;"></a>
+            <div id="fancybox-title" style="display: none;"></div>
+            <a href="javascript:;" id="fancybox-left" style="display: none;">
+                <span class="fancy-ico" id="fancybox-left-ico"></span>
+            </a>
+            <a href="javascript:;" id="fancybox-right" style="display: none;">
+                <span class="fancy-ico" id="fancybox-right-ico"></span>
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        !function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");
+
+        $(window).load(function () {
+            $('#vidbox').find('img').each(function () {
+                $.data(this, 'size', { width: $(this).width(), height: $(this).height() });
+            }).hover(function () {
+                $(this).stop().animate({
+                    height: $.data(this, 'size').height * 1.5,
+                    width: $.data(this, 'size').width * 1.5
+                }).mouseleave(function () {
+                    $(this).stop().animate({
+                        height: $.data(this, 'size').height / 1,
+                        width: $.data(this, 'size').width / 1
+                    });
+                });
+            });
+        });
+
+        //!function ($) {
+        $(document).ready(function () {
+
+            var imgID;
+            // Get video gallery element's ID.
+            $('a[rel=example_group]').mouseover(function () {
+                imgID = (this.id);
+            });
+
+            // Carousel code starts here. //
+            $('#carousel').carousel('cycle');
+
+            // Carousel code ends here. //
+
+            // Fancybox code starts here. //
+
+            $("a[rel=example_group]").fancybox({
+                'transitionIn': 'none',
+                'transitionOut': 'none',
+                'titlePosition': 'over',
+                'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                    return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + ' ' + title + '</span>';
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>

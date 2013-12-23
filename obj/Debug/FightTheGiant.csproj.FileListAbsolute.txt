@@ -1,0 +1,10 @@
+C:\Users\jcarlson\documents\visual studio 2012\Projects\FightTheGiant\FightTheGiant\bin\FightTheGiant.dll
+C:\Users\jcarlson\documents\visual studio 2012\Projects\FightTheGiant\FightTheGiant\bin\FightTheGiant.pdb
+C:\Users\jcarlson\documents\visual studio 2012\Projects\FightTheGiant\FightTheGiant\obj\Debug\FightTheGiant.dll
+C:\Users\jcarlson\documents\visual studio 2012\Projects\FightTheGiant\FightTheGiant\obj\Debug\FightTheGiant.pdb
+C:\Users\jcarlson\documents\visual studio 2012\Projects\FightTheGiant\FightTheGiant\obj\Debug\FightTheGiant.csprojResolveAssemblyReference.cache
+C:\Users\jcarlson\Source\Repos\TOTG\FightTheGiant\FightTheGiant\bin\FightTheGiant.dll
+C:\Users\jcarlson\Source\Repos\TOTG\FightTheGiant\FightTheGiant\bin\FightTheGiant.pdb
+C:\Users\jcarlson\Source\Repos\TOTG\FightTheGiant\FightTheGiant\obj\Debug\FightTheGiant.csprojResolveAssemblyReference.cache
+C:\Users\jcarlson\Source\Repos\TOTG\FightTheGiant\FightTheGiant\obj\Debug\FightTheGiant.dll
+C:\Users\jcarlson\Source\Repos\TOTG\FightTheGiant\FightTheGiant\obj\Debug\FightTheGiant.pdb
